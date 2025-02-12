@@ -1,0 +1,11 @@
+.favorite-button {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.favorite-button_text {
+  font-size: var(--font-size-m); 
+  font-weight: var(--font-weight-normal);
+  color: var(--secondary-color);
+}

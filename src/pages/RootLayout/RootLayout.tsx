@@ -4,7 +4,11 @@ import { Header } from "../../features";
 const RootLayout = () => {
   return (
     <div>
-      <Header />
+      <Header 
+        onClickLogo={() => {}}
+        onClickFavorites={() => {}}
+        favoriteNumber={0}
+      />
       <Outlet />
     </div>
   );

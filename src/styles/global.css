@@ -1,3 +1,28 @@
+/* global variables*/
+:root {
+  font-family: 'Roboto Condensed', sans-serif;
+ 
+   /* palette*/
+   --primary-color: #000000;
+   --secondary-color: #ffffff;
+   --tertiary-color: #AAAAAA;
+   --marvel-red: #EC1D24;
+ 
+   --table-breakpoint: 834px;
+   --mobile-breakpoint: 480px;
+ 
+   --font-size-xxl: 2.5rem;
+   --font-size-xl: 2rem;
+   --font-size-l: 1.5rem;
+   --font-size-m: 1rem;
+   --font-size-sm: 0.875rem;
+   --font-size-p-xs: 0.75rem;
+ 
+   --font-weight-bold: 700;
+   --font-weight-semibold: 500;
+   --font-weight-normal: 400;
+}
+
 /* reset body css */
 body {
  margin: 0;
