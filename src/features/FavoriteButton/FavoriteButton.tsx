@@ -1,6 +1,5 @@
 import "./FavoriteButtonStyles.css";
-import FavoriteIcon from "../../components/FavoriteIcon/FavoriteIcon";
-import FavoriteTransparentIcon from "../../components/FavoriteTransparentIcon/FavoriteTransparentIcon";
+import { FavoriteIcon, FavoriteTransparentIcon } from "../../components";
 
 interface FavoriteButtonProps {
   favoriteNumber?: number;

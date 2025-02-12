@@ -1,0 +1,25 @@
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.search_container {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--primary-color);
+}
+
+.search_container input {
+  color: var(--primary-color);
+  width: 100%;
+}
+
+.search_results-text {
+  font-size: var(--font-size-p-xs);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.5;
+}

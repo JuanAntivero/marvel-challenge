@@ -1,6 +1,10 @@
-.heroes-list {
+.home_container {
+  margin: 40px
+}
+
+.home_heroes-list {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
-  justify-content: space-evenly
+  justify-content: flex-start
 }

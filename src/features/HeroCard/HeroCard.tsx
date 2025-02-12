@@ -1,6 +1,5 @@
 import "./HeroCardStyles.css";
-import FavoriteIcon from "../../components/FavoriteIcon/FavoriteIcon";
-import FavoriteTrasparentIcon from "../../components/FavoriteTransparentIcon/FavoriteTransparentIcon";
+import { FavoriteIcon, FavoriteTransparentIcon } from "../../components";
 import { handleOnClickPropagation } from "../../utils/click-utils";
 
 interface HeroCardProps {
@@ -30,7 +29,7 @@ const HeroCard = ({
           {
             isFavorite ?
               <FavoriteIcon width={12} height={10} /> :
-              <FavoriteTrasparentIcon width={12} height={10} />
+              <FavoriteTransparentIcon width={12} height={10} />
           }
         </div>
       </button>

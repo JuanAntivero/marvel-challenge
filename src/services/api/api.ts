@@ -10,9 +10,10 @@ const getParsedResponse = <T>(response: AxiosResponse<ApiResponse<T>>): T => {
   return result;
 }
 
-export const fetchHeroes = async () => {
+export const fetchHeroes = async (searchValue: string) => {
   try {
-    const result = await axios.get<null, HeroResponse>(`${BASE_URL}/characters?limit=50&apikey=${MARVEL_API_KEY}`);
+    const searchQueryParam = searchValue ? `&nameStartsWith=${searchValue}` : "" 
+    const result = await axios.get<null, HeroResponse>(`${BASE_URL}/characters?limit=50&apikey=${MARVEL_API_KEY}${searchQueryParam}`);
     return getParsedResponse<HeroData>(result);
   } catch (error) {
     throw new Error("Error while fetching heroes");

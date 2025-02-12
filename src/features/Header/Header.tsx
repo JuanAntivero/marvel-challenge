@@ -1,5 +1,5 @@
 import "./HeaderStyles.css";
-import MarvelLogo from "../../components/MarvelLogo/MarvelLogo";
+import { MarvelLogo } from "../../components";
 import FavoriteButton from "../FavoriteButton/FavoriteButton";
 
 interface HeaderProps {

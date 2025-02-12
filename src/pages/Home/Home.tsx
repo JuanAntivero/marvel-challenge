@@ -1,22 +1,25 @@
 import "./HomeStyles.css"
-import LoadingSpinner from "../../components/LoadingSpinner/LoadingSpinner";
-import HeroCard from "../../features/HeroCard/HeroCard";
+import { LoadingSpinner } from "../../components";
+import { HeroCard } from "../../features";
 import { useHome } from "./hooks/useHome";
+import { Search } from "../../features";
 
 const Home = () => {
   const {
-    isLoading,
     heroesList,
+    isLoading,
+    setSearchValue,
+    resultsCount
   } = useHome();
 
   return (
     <>
-      {
-        isLoading ?
-        <LoadingSpinner />
-      :
-        <div>
-          <div className="heroes-list">
+        <div className="home_container">
+          <Search resultsCount={resultsCount} onChange={setSearchValue} disabled={isLoading} />
+          {isLoading ?
+            <LoadingSpinner />
+          :
+          <div className="home_heroes-list">
             {heroesList.map((hero) => (
               <HeroCard
                 key={hero.id}
@@ -29,8 +32,8 @@ const Home = () => {
               />
             ))}
           </div>
+          }
         </div>
-      }
     </>
   )
 }

@@ -1,7 +1,6 @@
 .hero-card {
   height: 245px;
   width: 188px;
-  margin: .1rem .1rem;
   display: flex;
   flex-direction: column;
   cursor: pointer;
@@ -54,4 +53,5 @@
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-normal);
   color: var(--secondary-color);
+  text-transform: uppercase;
 }
