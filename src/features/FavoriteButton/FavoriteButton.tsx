@@ -2,7 +2,7 @@ import "./FavoriteButtonStyles.css";
 import FavoriteIcon from "../../components/FavoriteIcon/FavoriteIcon";
 import FavoriteTransparentIcon from "../../components/FavoriteTransparentIcon/FavoriteTransparentIcon";
 
-type FavoriteButtonProps = {
+interface FavoriteButtonProps {
   favoriteNumber?: number;
   onClick: () => void;
 };

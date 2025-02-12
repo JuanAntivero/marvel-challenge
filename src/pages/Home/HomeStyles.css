@@ -1,0 +1,6 @@
+.heroes-list {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: space-evenly
+}

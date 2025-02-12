@@ -8,3 +8,7 @@
     padding: 16px;
   }
 }
+
+.header-logo {
+  cursor: pointer;
+}
