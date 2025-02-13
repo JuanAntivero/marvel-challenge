@@ -10,12 +10,12 @@ interface HeaderProps {
 
 const Header = ({ onClickLogo, onClickFavorites, favoriteNumber }: HeaderProps) => {
   return (
-    <div className="header">
+    <header className="header">
       <div className="header-logo" onClick={onClickLogo}>
         <MarvelLogo />
       </div>
       <FavoriteButton favoriteNumber={favoriteNumber} onClick={onClickFavorites} />
-    </div>
+    </header>
   );
 }
 

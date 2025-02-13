@@ -8,6 +8,7 @@ type SearchProps = {
 }
 
 const Search = ({ resultsCount, onChange, disabled = false }: SearchProps) => {
+  const resultsText = `${resultsCount} ${resultsCount === 1 ? "RESULT" : "RESULTS"}`;
   return (
     <div className="search">
       <div className="search_container">
@@ -19,7 +20,7 @@ const Search = ({ resultsCount, onChange, disabled = false }: SearchProps) => {
           onChange={(e) => onChange(e.target.value)}
         />
       </div>
-      {resultsCount != undefined && <p className="search_results-text">{resultsCount} RESULTS</p>}
+      {resultsCount != undefined && <p className="search_results-text">{resultsText}</p>}
     </div>
   );
 }
