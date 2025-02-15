@@ -1,4 +1,4 @@
-import { ComicDate } from "../services/api/api-types";
+import { ComicDate } from "../types/Comic";
 
 export const getComicOnSaleDate = (dates: ComicDate[]) => {
   const onSaleDateString = dates.find(dateData => dateData.type === "onsaleDate")?.date;

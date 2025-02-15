@@ -1,15 +1,20 @@
-import { Outlet, useNavigate } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { Header, Footer } from "../../features";
+import { useRootLayout } from "./hooks/useRootLayout";
 
 const RootLayout = () => {
-  const navigate = useNavigate();
-  const goToHome = () => navigate("/");
+  const {
+    favoritesCount,
+    onClickFavorites,
+    onClickLogo,
+  } = useRootLayout();
+  
   return (
     <div>
       <Header 
-        onClickLogo={goToHome}
-        onClickFavorites={() => {}}
-        favoriteNumber={0}
+        onClickLogo={onClickLogo}
+        onClickFavorites={onClickFavorites}
+        favoriteNumber={favoritesCount}
       />
       <Outlet />
       <Footer />

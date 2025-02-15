@@ -20,7 +20,7 @@ const Search = ({ resultsCount, onChange, disabled = false }: SearchProps) => {
           onChange={(e) => onChange(e.target.value)}
         />
       </div>
-      {resultsCount != undefined && <p className="search_results-text">{resultsText}</p>}
+      {!disabled && <p className="search_results-text">{resultsText}</p>}
     </div>
   );
 }

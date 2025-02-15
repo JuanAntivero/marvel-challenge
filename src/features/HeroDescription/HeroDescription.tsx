@@ -15,7 +15,7 @@ const HeroDescription = ({ imgSrc, title, text, isFavorite, onClickFavorite}: He
     <div className="hero-description_container">
       <div className="hero-description_title">
         <h1>{title}</h1>
-        <FavoriteButton onClick={onClickFavorite} />
+        <FavoriteButton onClick={onClickFavorite} isFavorite={isFavorite}/>
       </div>
       <p>{text}</p>
     </div>

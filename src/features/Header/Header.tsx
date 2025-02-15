@@ -14,7 +14,7 @@ const Header = ({ onClickLogo, onClickFavorites, favoriteNumber }: HeaderProps) 
       <div className="header-logo" onClick={onClickLogo}>
         <MarvelLogo />
       </div>
-      <FavoriteButton favoriteNumber={favoriteNumber} onClick={onClickFavorites} />
+      <FavoriteButton favoriteNumber={favoriteNumber} onClick={onClickFavorites} isFavorite={!!favoriteNumber}/>
     </header>
   );
 }

@@ -7,16 +7,20 @@ import { Search } from "../../features";
 const Home = () => {
   const {
     heroesList,
+    isFavorite,
     isLoading,
     onClickHero,
     setSearchValue,
-    resultsCount
+    showFavorites,
+    resultsCount,
+    toogleFavoriteId
   } = useHome();
 
   return (
     <>
         { isLoading && <LoadingBar /> }
         <div className="home_container">
+          {<h2 className={showFavorites ? "visible" : ""}>FAVORITES</h2>}
           <Search resultsCount={resultsCount} onChange={setSearchValue} disabled={isLoading} />
           { !isLoading &&
               <ul className="home_heroes-list">
@@ -26,9 +30,9 @@ const Home = () => {
                       id={hero.id}
                       imgSrc={`${hero.thumbnail.path}.${hero.thumbnail.extension}`}
                       heroName={hero.name}
-                      isFavorite={true}
+                      isFavorite={isFavorite(hero.id)}
                       onClick={() => onClickHero(hero.id)}
-                      onClickFavorite={() => {}}
+                      onClickFavorite={() => toogleFavoriteId(hero.id)}
                     />
                   </li>
                 ))}

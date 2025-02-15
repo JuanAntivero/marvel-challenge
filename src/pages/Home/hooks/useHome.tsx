@@ -1,11 +1,20 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useHeroesData } from "./useHeroesData";
 import useDebounce from "../../../hooks/useDebounce";
 import { useNavigate } from "react-router-dom";
+import { useFavorites } from "../../../store/hooks/useFavorites";
+import { Hero } from "../../../types/Hero";
 
 export const useHome = () => {
   const navigate = useNavigate();
+  const {
+    favoritesIds,
+    isFavorite,
+    showFavorites,
+    toogleFavoriteId
+  } = useFavorites()
   const [searchValue, setSearchValue] = useState("");
+  const [heroesList, setHeroesList] = useState<Hero[]>([]);
   const debouncedSearchValue = useDebounce(searchValue, 300);
 
   const { isLoading, data } = useHeroesData(debouncedSearchValue);
@@ -14,11 +23,22 @@ export const useHome = () => {
     navigate(`/hero/${id}`);
   }
 
+  useEffect(() => {
+    if (showFavorites) {
+      setHeroesList((data?.results || []).filter(hero => favoritesIds[hero.id]));
+    }else{
+      setHeroesList(data?.results || []);
+    }
+  }, [showFavorites, data, favoritesIds]);
+
   return {
-    heroesList: data?.results || [],
+    heroesList,
+    isFavorite,
     isLoading,
     onClickHero,
-    resultsCount: data?.results.length,
-    setSearchValue
+    resultsCount: heroesList.length,
+    setSearchValue,
+    showFavorites,
+    toogleFavoriteId
   }
 }

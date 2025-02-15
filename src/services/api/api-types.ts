@@ -1,4 +1,6 @@
 import { AxiosResponse } from "axios";
+import { Hero } from "../../types/Hero";
+import { Comic } from "../../types/Comic";
 
 export type ApiResponse<T> = {
 	code: number;
@@ -12,30 +14,6 @@ export type MarvelData<T> = {
   total: number;
   count: number;
   results: T[];
-}
-
-type Thumbnail = {
-  path: string;
-  extension: string;
-}
-
-export type Hero = {
-  id: number;
-  name: string;
-  description: string;
-  thumbnail: Thumbnail;
-}
-
-export type ComicDate = {
-  type: "onsaleDate" | "focDate" | "unlimitedDate" | "digitalPurchaseDate",
-  date: string,
-}
-
-export type Comic = {
-  id: number;
-  title: string;
-  thumbnail: Thumbnail;
-  dates: ComicDate[];
 }
 
 export type HeroData = MarvelData<Hero>;

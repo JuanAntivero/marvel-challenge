@@ -3,6 +3,7 @@ import { setupServer } from 'msw/node';
 import { renderWithProviders } from "../../utils/test-utils";
 import HeroDetails from "./HeroDetails";
 import { handlers } from "../../mocks/handlers";
+import userEvent from "@testing-library/user-event";
 
 vi.mock('react-router-dom', () => ({
   useParams: () => ({ heroId: 1009144}),
@@ -17,7 +18,7 @@ describe("Hero Details Page", () => {
   afterEach(() => server.resetHandlers());
   afterAll(() => server.close());
 
-  it("should render", async () => {
+  it("should render proper data", async () => {
     renderWithProviders(<HeroDetails />);
 
     //Initial state
@@ -25,11 +26,12 @@ describe("Hero Details Page", () => {
 
     await waitFor(() => {
       // Final state
-      // Hero Description
       expect(screen.queryByTestId("loading-bar")).not.toBeInTheDocument();
+      // Hero Description
       expect(screen.getByRole("heading", { name: "A.I.M.", level: 1})).toBeInTheDocument();
       expect(screen.getByText("AIM is a terrorist organization bent on destroying the world.")).toBeInTheDocument();
       expect(screen.getByAltText("A.I.M.")).toBeInTheDocument();
+      expect(screen.getByTestId("fav-transparent-icon")).toBeInTheDocument();
 
       // Comics list
       expect(screen.getByRole("heading", { name: /comics/i, level: 2})).toBeInTheDocument();
@@ -45,6 +47,27 @@ describe("Hero Details Page", () => {
       expect(screen.getByAltText("X-Men Unlimited Infinity Comic (2021) #1")).toBeInTheDocument();
       expect(screen.getByRole("heading", { name: "X-Men Unlimited Infinity Comic (2021) #1", level: 3})).toBeInTheDocument();
       expect(screen.getByText("2021")).toBeInTheDocument();
+    });
+  });
+
+  it("should set favorite hero when clicking on favorite icon", async () => {
+    renderWithProviders(<HeroDetails />);
+
+    await waitFor(() => {
+      expect(screen.queryByTestId("loading-bar")).not.toBeInTheDocument();
+    });
+
+    // Initial State
+    expect(screen.getByTestId("fav-transparent-icon")).toBeInTheDocument();
+    expect(screen.queryByTestId("favorite-icon")).not.toBeInTheDocument();
+
+    // Setup
+    userEvent.click(screen.getByTestId("fav-transparent-icon"));
+
+    await waitFor(() => {
+      // Final State
+      expect(screen.queryByTestId("fav-transparent-icon")).not.toBeInTheDocument();
+      expect(screen.getByTestId("favorite-icon")).toBeInTheDocument();
     });
   })
 });

@@ -8,7 +8,9 @@ const HeroDetails = () => {
   const { 
     isLoading,
     heroDescription,
-    comics
+    comics,
+    isFavorite,
+    toogleFavoriteId
   } = useHeroDetails();
 
   return (
@@ -24,12 +26,12 @@ const HeroDetails = () => {
               imgSrc={`${heroDescription.thumbnail.path}.${heroDescription.thumbnail.extension}`}
               title={heroDescription.name}
               text={heroDescription.description}
-              isFavorite={true}
-              onClickFavorite={() => {}}
+              isFavorite={isFavorite(heroDescription.id)}
+              onClickFavorite={() => toogleFavoriteId(heroDescription.id)}
             />
             {
               !!comics.length &&
-              <div className="comics">
+              <section className="comics">
                 <h2>COMICS</h2>
                 <ul className="comics_list">
                   {comics.map((comic) => (
@@ -43,7 +45,7 @@ const HeroDetails = () => {
                     </li>
                   ))}
                 </ul>
-              </div>
+              </section>
             }
           </>
         )

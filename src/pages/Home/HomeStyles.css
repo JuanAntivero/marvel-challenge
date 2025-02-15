@@ -1,5 +1,30 @@
 .home_container {
-  margin: 40px
+  margin: 40px;
+  
+  @media only screen and (max-width: 768px) {
+    margin: 20px
+  }
+}
+
+.home_container h2 {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--primary-color);
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  transition: all .4s linear;
+
+  @media only screen and (max-width: 768px) {
+    font-size: var(--font-size-l);
+  }
+}
+
+.home_container h2.visible {
+  transition: all .4s linear;
+  margin-bottom: 60px;
+  visibility: visible;
+  opacity: 1;
 }
 
 .home_heroes-list {

@@ -1,4 +1,4 @@
-import { screen, waitFor } from "@testing-library/react";
+import { screen, waitFor, within } from "@testing-library/react";
 import userEvent from '@testing-library/user-event';
 import { setupServer } from 'msw/node';
 import { renderWithProviders } from "../../utils/test-utils";
@@ -87,6 +87,49 @@ describe("Home", () => {
 
     await waitFor(() => {
       expect(navigate).toHaveBeenCalledWith("/hero/1011334");
+    });
+  });
+
+  it("should set favorite card when clicking favorite icon", async () => {
+    renderWithProviders(<Home />);
+    
+    await waitFor(() => {
+      // waits until data loaded
+      expect(screen.queryByTestId("loading-bar")).not.toBeInTheDocument();
+    });
+
+    // Initial state
+    const firstItem = screen.getAllByRole('listitem')[0];
+    expect(within(firstItem).queryByTestId("favorite-icon")).not.toBeInTheDocument();
+
+    //Setup
+    userEvent.click(within(firstItem).getByTestId("fav-transparent-icon"));
+
+    await waitFor(() => {
+      //Final State
+      expect(within(firstItem).queryByTestId("fav-transparent-icon")).not.toBeInTheDocument();
+      expect(within(firstItem).getByTestId("favorite-icon")).toBeInTheDocument();
+    });
+  });
+
+  it("should only show favorites when flag enabled", async () => {
+    renderWithProviders(<Home />, {
+      preloadedState: {
+        favorites: {
+          showFavorites: true,
+          favoritesIds: {1011334: true}
+        }
+      }
+    });
+    
+    await waitFor(() => {
+      // waits until data loaded
+      expect(screen.queryByTestId("loading-bar")).not.toBeInTheDocument();
+      expect(screen.getByRole("heading", { name: /favorites/i, level: 2 })).toBeVisible();
+      expect(screen.getByText(/1 result/i)).toBeInTheDocument();
+      expect(screen.getByText("3-D Man")).toBeInTheDocument();
+      expect(screen.queryByText("Aaron Stack")).not.toBeInTheDocument();
+      expect(screen.queryByText("A.I.M.")).not.toBeInTheDocument();
     });
   });
 })
