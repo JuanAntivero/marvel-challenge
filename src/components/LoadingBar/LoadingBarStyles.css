@@ -1,0 +1,22 @@
+.loading-bar {
+  position: relative;
+  height: 4px;
+  overflow: hidden;
+}
+
+.loading-bar_progress {
+  background-color: var(--marvel-red);
+  position: absolute;
+  width: 95%;
+  height: 100%;
+  animation: loading 2s linear;
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 95%;
+  }
+}

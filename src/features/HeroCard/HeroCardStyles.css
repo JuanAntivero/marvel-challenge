@@ -19,10 +19,10 @@
  border-bottom: 5px solid var(--marvel-red);
 }
 
-.hero-card button {
+.hero-card_name {
   position: relative;
-  height: 56px;
-  width: 100%;
+  max-height: 56px;
+  box-sizing: border-box;
   padding: 16px;
   padding-bottom: 24px;
   background-color: black;
@@ -34,11 +34,9 @@
   transition: all .5s linear;
 	color: white;
 	font: inherit;
-	cursor: pointer;
-	outline: inherit;
 }
 
-.hero-card button::after {
+.hero-card_name::after {
   content: "";
   position: absolute;
   bottom: 0;
@@ -52,19 +50,19 @@
   transition: transform .5s;
 }
 
-.hero-card:hover button::after {
+.hero-card:hover .hero-card_name::after {
   transform: scaleY(1);
 }
 
-.hero-card button > div > svg > path{
+.hero-card_name > div > svg > path{
   transition: all .5s linear;
 }
 
-.hero-card:hover > button > div > svg > path{
+.hero-card:hover > .hero-card_name > div > svg > path{
   fill: white
 }
 
-.hero-card button p {
+.hero-card_name p {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-normal);
   color: var(--secondary-color);

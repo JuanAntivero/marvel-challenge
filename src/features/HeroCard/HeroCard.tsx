@@ -21,9 +21,9 @@ const HeroCard = ({
 }: HeroCardProps) => {
 
   return (
-    <div className="hero-card" id={`hero-card_${id}`}>
+    <div className="hero-card" id={`hero-card_${id}`} onClick={handleOnClickPropagation(onClick)}>
       <img src={imgSrc} alt={heroName} />
-      <button onClick={handleOnClickPropagation(onClick)}>
+      <div className="hero-card_name">
         <p>{heroName}</p>
         <div onClick={handleOnClickPropagation(onClickFavorite)}>
           {
@@ -32,7 +32,7 @@ const HeroCard = ({
               <FavoriteTransparentIcon width={12} height={10} />
           }
         </div>
-      </button>
+      </div>
     </div>
   );
 };

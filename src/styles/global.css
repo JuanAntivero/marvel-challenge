@@ -16,7 +16,7 @@
    --font-size-l: 1.5rem;
    --font-size-m: 1rem;
    --font-size-sm: 0.875rem;
-   --font-size-p-xs: 0.75rem;
+   --font-size-xs: 0.75rem;
  
    --font-weight-bold: 700;
    --font-weight-semibold: 500;
@@ -53,4 +53,10 @@ input {
   margin: 0;
   font: inherit;
   color: inherit;
+}
+
+/* remove default list styles */
+ul {
+  padding: 0;
+  list-style-type: none;
 }

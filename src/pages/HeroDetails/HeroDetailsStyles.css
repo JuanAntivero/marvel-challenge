@@ -1,0 +1,31 @@
+.comics {
+  display: flex;
+  gap: 24px;
+  margin: 48px 276px;
+  flex-direction: column;
+
+  @media only screen and (max-width: 1280px) {
+    margin: 48px;
+  }
+
+  @media only screen and (max-width: 480px) {
+    margin: 48px 16px 0 16px;
+  }
+}
+
+.comics_list {
+  display: flex;
+  gap: 16px;
+  overflow-x: scroll;
+}
+
+.comics_list::-webkit-scrollbar {
+  border-radius: 4px;
+  height: 4px;
+  background-color: var(--tertiary-color);
+}
+
+.comics_list::-webkit-scrollbar-thumb {
+  background-color: var(--marvel-red);
+  border-radius: 4px;
+}

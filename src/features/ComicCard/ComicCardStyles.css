@@ -1,0 +1,30 @@
+.comic-card {
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+}
+
+.comic-card img {
+  height: 268px;
+  width: 180px;
+  object-fit: cover;
+}
+
+.comic-card_title {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.comic-card_title h3{
+  font-size: var(--font-size-m);
+  font-weight: var(--font-weight-semibold);
+  color: var(--primary-color);
+}
+
+.comic-card_title p{
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.5;
+  color: var(--primary-color);
+}

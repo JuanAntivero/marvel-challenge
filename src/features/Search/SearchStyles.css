@@ -19,7 +19,7 @@
 }
 
 .search_results-text {
-  font-size: var(--font-size-p-xs);
+  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-normal);
   line-height: 1.5;
 }

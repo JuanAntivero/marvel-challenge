@@ -1,5 +1,5 @@
 import { createBrowserRouter } from "react-router-dom";
-import { Home, NotFoundPage, RootLayout, Error } from "../pages";
+import { Home, HeroDetails, NotFound, RootLayout, Error } from "../pages";
 
 
 export const router = createBrowserRouter([
@@ -13,8 +13,12 @@ export const router = createBrowserRouter([
         element: <Home />
       },
       {
+        path: "/hero/:heroId",
+        element: <HeroDetails />,
+      },
+      {
         path: "*",
-        element: <NotFoundPage />,
+        element: <NotFound />,
       }
     ]
   },
