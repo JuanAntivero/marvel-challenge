@@ -18,7 +18,7 @@ export const renderWithProviders = (
     ...renderOptions
   }: ExtendedRenderOptions = {}) => {
   const queryClient = new QueryClient();
-  const Wrapper = ({ children }: PropsWithChildren<{}>) => {
+  const Wrapper = ({ children }: PropsWithChildren) => {
     return (
       <ReduxProvider store={store}>
         <QueryClientProvider client={queryClient}>

@@ -5,7 +5,7 @@ interface FavoriteButtonProps {
   favoriteNumber?: number;
   isFavorite: boolean;
   onClick: () => void;
-};
+}
 
 const FavoriteButton = ({ onClick, favoriteNumber, isFavorite }: FavoriteButtonProps ) => {
   return (
