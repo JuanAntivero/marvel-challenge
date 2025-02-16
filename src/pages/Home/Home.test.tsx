@@ -73,6 +73,27 @@ describe("Home", () => {
     });
   });
 
+  it("should show no values when no matching filter results", async () => {
+    renderWithProviders(<Home />);
+    
+    await waitFor(() => {
+      // waits until data loaded
+      expect(screen.queryByTestId("loading-bar")).not.toBeInTheDocument();
+    });
+
+    // Setup
+    const searchInput = screen.getByPlaceholderText(/search a character.../i);
+    userEvent.type(searchInput, "asd");
+
+    await waitFor(() => {
+      // Final State
+      expect(screen.getByText(/0 results/i)).toBeInTheDocument();
+      expect(screen.queryByText("3-D Man")).not.toBeInTheDocument();
+      expect(screen.queryByText("Aaron Stack")).not.toBeInTheDocument();
+      expect(screen.queryByText("A.I.M.")).not.toBeInTheDocument();
+    });
+  });
+
   it("should launch a proper navigation when clicking a card", async () => {
     renderWithProviders(<Home />);
     
