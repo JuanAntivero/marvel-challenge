@@ -89,3 +89,11 @@ Each layer of the project is designed for separation of concerns: **pages** act 
 
 > [!NOTE]
 > Usage of Redux as state manager is a BIG overkill for this small application. It was selected for didactic purposes in order to show some state manager usage.
+
+## Improvement proposals and next steps
+- Add proper error and no data found states in the pages (and add testing cases for them).
+- Add proper structure and testing for Not Found and Error routes.
+- Use a css pre-processor.
+- Add a Husky hook to keep linting and testing updated. 
+- Create proper folder aliases for clearer paths.
+- Create a typography component to standarize headings, paragraphs, etc.
